@@ -14,8 +14,14 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #0e262d;
     --foreground: #ededed;
+    --primary-color: #f29d38;
+    --opacity-primary: #f29e3825;
+    --secondary-color: #ffffff;
+    --opacity-color: #ffffff74;
+    --hero-img: "/assets/images/bg.png";
+    --background-light: #0f2a31;
   }
 }
 
@@ -23,4 +29,51 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+@keyframes moveImages {
+  0% {
+    left: -100%;
+  }
+
+  100% {
+    left: 100%;
+  }
+}
+@keyframes moveImages1 {
+  0% {
+    left: -40%;
+  }
+
+  100% {
+    left: 175%;
+  }
+}
+@keyframes moveImages2 {
+  0% {
+    left: -25%;
+  }
+
+  100% {
+    left: 150%;
+  }
+}
+@keyframes arrowDown {
+  0% {
+    transform: translateY(-1rem);
+  }
+  50% {
+    transform: translateY(1rem);
+  }
+  100% {
+    transform: translateY(-1rem);
+  }
+}
+@keyframes lefttoright {
+  0% {
+    transform: translateX(1%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
 }
