@@ -58,6 +58,8 @@ body {
     left: 150%;
   }
 }
+
+/* arrow up and down scroll */
 @keyframes arrowDown {
   0% {
     transform: translateY(-1rem);
@@ -69,9 +71,21 @@ body {
     transform: translateY(-1rem);
   }
 }
-@keyframes lefttoright {
+
+/* toggle menu animation*/
+@keyframes rightToLeft {
   0% {
-    transform: translateX(1%);
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* toggle menu animation*/
+@keyframes leftToRight {
+  0% {
+    transform: translateX(0);
   }
   100% {
     transform: translateX(100%);

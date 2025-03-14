@@ -10,7 +10,7 @@ const Timeline = () => {
       alignItems="center"
       flexDirection="column"
       width="100%"
-      paddingTop="10rem"
+      paddingTop="5rem"
     >
       <TimelineBox
         index={1}

@@ -20,7 +20,7 @@ const Footer = () => {
         color="var(--opacity-color)"
       >
         <FaRegCopyright style={{ textAlign: "center" }} />
-        <Text>Copyright 2025 - Malsha Fernando</Text>
+        <Text>Copyright 2025 - Amelia Dubois</Text>
       </Box>
     </Box>
   );

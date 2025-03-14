@@ -19,12 +19,13 @@ const TimelineBox: React.FC<BoxProps> = ({
   description,
   index,
 }) => {
+  const mod: number = index % 2;
   return (
     <Box
       display="flex"
       alignItems="center"
       width="100%"
-      justifyContent="center"
+      lg={{ justifyContent: "center" }}
       position="relative"
       minHeight="150px"
     >
@@ -37,12 +38,12 @@ const TimelineBox: React.FC<BoxProps> = ({
         width="10%"
         zIndex="1"
       >
-        <Box height="6rem" width="1px" bg="var(--primary-color)" />
+        <Box height="7rem" width="1px" bg="var(--primary-color)" />
         <FaRegCircle
           color="var(--primary-color)"
           style={{ fontSize: "2rem" }}
         />
-        <Box height="6rem" width="1px" bg="var(--primary-color)" />
+        <Box height="7rem" width="1px" bg="var(--primary-color)" />
       </Box>
 
       {/* left line + card */}
@@ -51,15 +52,18 @@ const TimelineBox: React.FC<BoxProps> = ({
         alignItems="center"
         position="absolute"
         width="90%"
-        justifyContent={index % 2 === 0 ? "flex-start" : "flex-end"}
+        left={{ base: "9%", lg: "5%", md: "6.7%", sm: "7.7%" }}
+        justifyContent={{
+          smToLg: "flex-start",
+          lg: mod === 0 ? "flex-start" : "flex-end",
+        }}
       >
-        {index % 2 !== 0 && (
-          <Box
-            height="2px"
-            width={["1%", "2%", "3%", "3.4%", "3.8%"]}
-            bg="var(--primary-color)"
-          />
-        )}
+        <Box
+          height="2px"
+          width={["20%", "5%", "5%", "3.4%", "3.8%"]}
+          bg="var(--primary-color)"
+          display={{ smToLg: "block", lg: mod === 0 ? "none" : "block" }}
+        />
         <Box
           padding="1.5rem"
           border="solid"
@@ -67,7 +71,7 @@ const TimelineBox: React.FC<BoxProps> = ({
           borderWidth="1px"
           borderRadius="1rem"
           background="var(--opacity-primary)"
-          width="45%"
+          width={{ smToLg: "100%", lg: "45%" }}
         >
           <Text color="var(--opacity-color)" fontSize="sm">
             {startYear} - {endYear}
@@ -84,13 +88,12 @@ const TimelineBox: React.FC<BoxProps> = ({
           </Text>
           <Text fontSize="sm">{description}</Text>
         </Box>
-        {index % 2 === 0 && (
-          <Box
-            height="2px"
-            width={["1%", "2%", "3%", "3.4%", "3.8%"]}
-            bg="var(--primary-color)"
-          />
-        )}
+        <Box
+          height="2px"
+          width={["1%", "2%", "3%", "3.4%", "3.8%"]}
+          bg="var(--primary-color)"
+          display={{ smToLg: "none", lg: mod === 0 ? "block" : "none" }}
+        />
       </Box>
     </Box>
   );

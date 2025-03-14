@@ -1,12 +1,32 @@
-import { Box, Grid, GridItem, Heading, Image, Text } from "@chakra-ui/react";
+"use client";
+import {
+  Box,
+  Grid,
+  GridItem,
+  Heading,
+  IconButton,
+  Image,
+  Text,
+} from "@chakra-ui/react";
+import { Tooltip } from "@/components/ui/tooltip";
 import React from "react";
 import { FaLinkedinIn } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa6";
 import { FaFacebookF } from "react-icons/fa";
 import { CiCircleChevDown } from "react-icons/ci";
+import { IoArrowUp } from "react-icons/io5";
 const Hero = () => {
+  const goToTop = (e: React.MouseEvent) => {
+    e.preventDefault();
+    document.getElementById("home")?.scrollIntoView({ behavior: "smooth" });
+  };
   return (
-    <Box bgImage="url(/assets/images/bg.png)" width="full">
+    <Box
+      id="home"
+      bgImage="url(/assets/images/bg.png)"
+      width="full"
+      height="100vh"
+    >
       <Grid
         templateColumns="repeat(8, 1fr)"
         alignItems="center"
@@ -15,7 +35,7 @@ const Hero = () => {
       >
         <GridItem
           colSpan={1}
-          display="flex"
+          display={{ base: "none", lg: "flex" }}
           flexDirection="column"
           alignItems="flex-start"
         >
@@ -34,10 +54,14 @@ const Hero = () => {
           </div>
         </GridItem>
         <GridItem colSpan={7} display="flex" flexDirection="column" gap="1rem">
-          <Heading size="3xl" fontWeight="medium" color="var(--primary-color)">
-            I am Malsha Fernando
+          <Heading
+            size={{ base: "lg", lg: "3xl" }}
+            fontWeight="medium"
+            color="var(--primary-color)"
+          >
+            I am Amelia Dubois
           </Heading>
-          <Heading size="7xl">SKILLED CHEF</Heading>
+          <Heading size={{ base: "5xl", lg: "7xl" }}>SKILLED CHEF</Heading>
           <Box
             borderLeft="1px solid var(--opacity-color)"
             paddingLeft="4"
@@ -52,26 +76,7 @@ const Hero = () => {
           </Box>
         </GridItem>
       </Grid>
-      <Box
-        position="absolute"
-        top="0"
-        width="100%"
-        height="5rem"
-        style={{
-          background:
-            "linear-gradient(to bottom, var(--background), transparent)",
-        }}
-      ></Box>
-      <Box
-        position="absolute"
-        top="81vh"
-        width="100%"
-        height="5rem"
-        style={{
-          background:
-            "linear-gradient(to bottom, transparent, var(--background))",
-        }}
-      ></Box>
+
       <CiCircleChevDown
         style={{
           position: "absolute",
@@ -81,6 +86,22 @@ const Hero = () => {
         size="5rem"
         className="w-full text-align-center"
       />
+      <Tooltip
+        content="Go to top"
+        contentProps={{
+          css: { "--tooltip-bg": "orange" },
+        }}
+      >
+        <IconButton
+          rounded="full"
+          position="fixed"
+          left={{ base: "90%", sm: "90%", md: "90%", lg: "95%" }}
+          zIndex="2000"
+          onClick={goToTop}
+        >
+          <IoArrowUp />
+        </IconButton>
+      </Tooltip>
     </Box>
   );
 };

@@ -10,6 +10,7 @@ const Start = () => {
       flexDirection="column"
       gap="5rem"
       marginTop="5rem"
+      id="about"
     >
       <Text
         fontSize={["1rem", "1rem", "2rem", "2rem"]}
@@ -46,7 +47,13 @@ const Start = () => {
         ))}
       </Box>
       <Grid
-        gridTemplateColumns="repeat(2, 1fr)"
+        gridTemplateColumns={[
+          "repeat(1, 1fr)",
+          "repeat(1, 1fr)",
+          "repeat(2, 1fr)",
+          "repeat(2, 1fr)",
+          "repeat(2, 1fr)",
+        ]}
         paddingY="5rem"
         paddingX="5rem"
         alignItems="center"
@@ -68,6 +75,11 @@ const Start = () => {
             sometimes one ingredient decides to do its own thing – like a diva
             in a dance-off – but that is where the magic happens!
           </Text>
+          <Image
+            src="/assets/images/sign.png"
+            alt="signature"
+            boxSize="200px"
+          />
         </GridItem>
         <GridItem>
           <Image src="/assets/images/chef.png" alt="chef" />
