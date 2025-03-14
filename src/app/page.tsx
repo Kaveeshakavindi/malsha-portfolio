@@ -13,6 +13,8 @@ export default function Home() {
       alignItems="center"
       flexDirection="column"
       width="100vw"
+      overflowX="hidden"
+      position="relative"
     >
       <Nav />
       <Hero />

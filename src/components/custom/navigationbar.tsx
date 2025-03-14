@@ -40,10 +40,11 @@ const Nav = () => {
       </Box>
       <Box
         background="var(--primary-color)"
-        width="100%"
+        width="100vw"
         height="100vh"
         position="absolute"
         display="flex"
+        overflow="hidden"
         flexDirection="column"
         alignItems="left"
         justifyContent="space-between"
